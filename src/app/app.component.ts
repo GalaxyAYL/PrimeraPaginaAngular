@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { Router } from '@angular/router';
+import { ComponentAComponent } from 'src/components/component_a/component-a/component-a/component-a.component';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-@NgModule({
-  declarations: [ComponentAComponent],
-  imports: [
-    CommonModule
-  ]
-})
-
-const routes: Routes =[
-{path: "Algo A", component: ComponentAComponent}
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports:[RouterModule]
-}
-
-)
 export class AppComponent {
-  title = 'pagina';
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  
+  cmb1(){
+    this.router.navigate(['paginaUno'])
+  }
+  cmb2(){
+    this.router.navigate(['paginaDos'])
+  }
 }
